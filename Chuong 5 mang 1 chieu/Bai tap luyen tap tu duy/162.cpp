@@ -11,19 +11,15 @@ void nhap(double a[], int n)
 
 double solve(double a[], int n)
 {
-    int vt = -1, max = -1000;
+    int r = -1;
     for(int i = 0;i < n;i++)
     {
-        if(a[i] < 0)
+        if((a[0] * a[n - 1]) == a[i])
         {
-            if(a[i] > max)
-            {
-                max = a[i];
-                vt = i;
-            }
+            r = i;
         }
     }
-    return vt;
+    return r;
 }
 
 int main()

@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void nhap(double a[], int n)
+void nhap(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
@@ -9,29 +9,26 @@ void nhap(double a[], int n)
     }
 }
 
-double solve(double a[], int n)
+void sort(int a[], int n)
 {
-    int vt = -1, max = -1000;
     for(int i = 0;i < n;i++)
     {
-        if(a[i] < 0)
+        for(int j = i + 1;j < n;j++)
         {
-            if(a[i] > max)
+            if(a[i] > a[j])
             {
-                max = a[i];
-                vt = i;
+                swap(a[i], a[j]);
             }
         }
     }
-    return vt;
 }
 
 int main()
 {
-    double a[100];
-    int n;
+    int a[100], n;
     cin >> n;
     nhap(a, n);
-    cout << solve(a, n);
+    sort(a, n);
+    cout << a[1];
     return 0;
 }
