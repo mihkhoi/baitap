@@ -11,6 +11,7 @@ void input(int a[], int n)
 
 void solve(int a[], int b[], int n, int m)
 {
+    int vt = 0;
     for(int i = 0;i < n;i++)
     {
         for(int j = 0;j < m;j++)
@@ -19,7 +20,31 @@ void solve(int a[], int b[], int n, int m)
             {
                 break;
             }
-            cout << b[j] << " ";
+            vt++;
+        }
+        if(vt == m)
+        {
+            cout << a[i] << " ";
+        }
+    }
+}
+
+void solve1(int b[], int a[], int m, int n)
+{
+    int vt = 0;
+    for(int i = 0;i < m;i++)
+    {
+        for(int j = 0;j < n;j++)
+        {
+            if(b[i] == a[j])
+            {
+                break;
+            }
+            vt++;
+        }
+        if(vt == n)
+        {
+            cout << b[i] << " ";
         }
     }
 }
@@ -32,5 +57,7 @@ int main()
     cin >> m;
     input(b, m);
     solve(a, b, n, m);
+    cout << endl;
+    solve1(b, a, m, n);
     return 0;
 }
