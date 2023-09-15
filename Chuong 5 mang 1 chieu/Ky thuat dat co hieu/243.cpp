@@ -25,32 +25,24 @@ bool check(int n)
     return true;
 }
 
-int solve(int a[], int b[], int n)
+int solve(int a[], int n)
 {
-    int d = 0, c = 0;
     for(int i = 0;i < n;i++)
     {
         if(check(a[i]) == true)
         {
-            b[c++] = a[i];
+            return 1;
+            break;
         }
     }
-    for(int i = 0;i < c;i++)
-    {
-        if(b[i] == b[i + 1])
-        {
-            continue;
-        }
-        d++;
-    }
-    return d;
+    return 0;
 }
 
 int main()
 {
-    int a[100], b[100], n;
+    int a[100], n;
     cin >> n;
     input(a, n);
-    cout << solve(a, b, n);
+    cout << solve(a, n);
     return 0;
 }
