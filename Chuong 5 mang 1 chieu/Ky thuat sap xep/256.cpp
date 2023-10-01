@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void input(double a[], int n)
+void input(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
@@ -9,7 +9,7 @@ void input(double a[], int n)
     }
 }
 
-void output(double a[], int n)
+void output(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
@@ -17,13 +17,13 @@ void output(double a[], int n)
     }
 }
 
-void solve(double a[], int n)
+void solve(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
         for(int j = i + 1;j < n;j++)
         {
-            if(a[i] > a[j])
+            if(a[i] < a[j])
             {
                 swap(a[i], a[j]);
             }
@@ -33,8 +33,7 @@ void solve(double a[], int n)
 
 int main()
 {
-    double a[100];
-    int n;
+    int a[100], n;
     cin >> n;
     input(a, n);
     solve(a, n);
