@@ -9,6 +9,14 @@ void input(int a[], int n)
     }
 }
 
+void output(int a[], int n)
+{
+    for(int i = 0;i < n;i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
 void mix(int a[], int n, int b[100], int m, int c[])
 {
     int d = 0;
@@ -18,7 +26,7 @@ void mix(int a[], int n, int b[100], int m, int c[])
     }
     for(int j = 0;j < m;j++)
     {
-        c[d++] = a[j];
+        c[d++] = b[j];
     }
 }
 
@@ -28,7 +36,10 @@ void solve(int a[], int n)
     {
         for(int j = i + 1;j < n;j++)
         {
-            if()
+            if(a[i] < a[j])
+            {
+                swap(a[i], a[j]);
+            }
         }
     }
 }
@@ -42,6 +53,7 @@ int main()
     input(b, m);
     x = n + m;
     mix(a, n, b, m, c);
-
+    solve(c, x);
+    output(c, x);
     return 0;
 }
