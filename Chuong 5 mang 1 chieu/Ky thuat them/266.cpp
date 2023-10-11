@@ -9,17 +9,32 @@ void input(int a[], int n)
     }
 }
 
-void solve(int a[], int n, int x, int k)
+void output(int a[], int n)
 {
-    
+    for(int i = 0;i < n;i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+
+void solve(int a[], int n, int k, int x)
+{
+    for(int i = n + 1;i > k;i--)
+    {
+        a[i] = a[i - 1];
+    }
+    a[k] = x;
+    n++;
 }
 
 int main()
 {
-    int a[100], n, x, k;
+    int a[100], n;
     cin >> n;
     input(a, n);
-    cin >> x >> k;
-    solve(a, n, x, k);
+    int k, x;
+    cin >> k >> x;
+    solve(a, n, k , x);
+    output(a, n + 1);
     return 0;
 }
