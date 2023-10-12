@@ -17,7 +17,7 @@ void output(int a[], int n)
     }
 }
 
-void solve(int a[], int n, int k)
+void del(int a[], int n, int k)
 {
     for(int i = k;i < n - 1;i++)
     {
@@ -26,14 +26,27 @@ void solve(int a[], int n, int k)
     n--;
 }
 
+void solve(int a[], int n)
+{
+    int d = 0, m = n;
+    for(int i = 0;i < n;i++)
+    {
+        if(a[i]%2 == 0)
+        {
+            del(a, m, i);
+            i = i - 1;
+            n = n - 1;
+            d++;
+        }
+    }
+    output(a, m - d);
+}
+
 int main()
 {
     int a[100], n;
     cin >> n;
     input(a, n);
-    int k;
-    cin >> k;
-    solve(a, n, k);
-    output(a, n - 1);
+    solve(a, n);
     return 0;
 }
