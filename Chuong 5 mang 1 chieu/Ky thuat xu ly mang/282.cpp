@@ -13,11 +13,11 @@ void output(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
-        cout << a[i] << " ";
+        cout << a[i] <<  " ";
     }
 }
 
-void add(int a[], int n, int k, int x)
+void add(int a[], int n, int k , int x)
 {
     for(int i = k;i > 0;i--)
     {
@@ -26,19 +26,11 @@ void add(int a[], int n, int k, int x)
     a[0] = x;
 }
 
-
-void solve(int a[], int n)
+void solve(int a[], int n )
 {
     for(int i = 0;i < n;i++)
     {
-        if(a[i] == 0)
-        {
-            add(a, n, i, a[i]);
-        }
-    }
-    for(int i = 0;i < n;i++)
-    {
-        if(a[i]%2 == 0)
+        if(a[i]%3 == 0)
         {
             add(a, n, i, a[i]);
         }

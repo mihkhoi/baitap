@@ -17,30 +17,16 @@ void output(int a[], int n)
     }
 }
 
-void add(int a[], int n, int k, int x)
-{
-    for(int i = k;i > 0;i--)
-    {
-        a[i] = a[i - 1];
-    }
-    a[0] = x;
-}
-
-
 void solve(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
-        if(a[i] == 0)
+        for(int j = i + 1;j < n;j++)
         {
-            add(a, n, i, a[i]);
-        }
-    }
-    for(int i = 0;i < n;i++)
-    {
-        if(a[i]%2 == 0)
-        {
-            add(a, n, i, a[i]);
+            if(a[i] < 0 && a[j] < 0)
+            {
+                swap(a[i], a[j]);
+            }
         }
     }
 }

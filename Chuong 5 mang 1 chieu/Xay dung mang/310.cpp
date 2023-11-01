@@ -17,40 +17,41 @@ void output(int a[], int n)
     }
 }
 
-void add(int a[], int n, int k, int x)
+bool check(int n)
 {
-    for(int i = k;i > 0;i--)
+    if(n < 2)
     {
-        a[i] = a[i - 1];
+        return false;
     }
-    a[0] = x;
+    for(int i = 2;i <= sqrt(n);i++)
+    {
+        if(n%i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
-
-void solve(int a[], int n)
+int solve(int a[], int b[], int n)
 {
+    int d = 0;
     for(int i = 0;i < n;i++)
     {
-        if(a[i] == 0)
+        if(check(a[i]) == true)
         {
-            add(a, n, i, a[i]);
+            b[d++] = a[i];
         }
     }
-    for(int i = 0;i < n;i++)
-    {
-        if(a[i]%2 == 0)
-        {
-            add(a, n, i, a[i]);
-        }
-    }
+    return d;
 }
 
 int main()
 {
-    int a[100], n;
+    int a[100], b[100], n, m;
     cin >> n;
     input(a, n);
-    solve(a, n);
-    output(a, n);
+    m = solve(a, b, n);
+    output(b, m);
     return 0;
 }

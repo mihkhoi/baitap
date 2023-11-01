@@ -13,34 +13,37 @@ void output(int a[], int n)
 {
     for(int i = 0;i < n;i++)
     {
-        cout << a[i] << " ";
+        cout << a[i] <<  " ";
     }
 }
-
-void add(int a[], int n, int k, int x)
-{
-    for(int i = k;i > 0;i--)
-    {
-        a[i] = a[i - 1];
-    }
-    a[0] = x;
-}
-
 
 void solve(int a[], int n)
 {
+    int max = a[0];
+    int min = a[n - 1];
+    int vt, vt1;
     for(int i = 0;i < n;i++)
     {
-        if(a[i] == 0)
+        if(a[i] > max)
         {
-            add(a, n, i, a[i]);
+            max = a[i];
+            vt = max;
+        }
+        else if(a[i] < min)
+        {
+            min = a[i];
+            vt1 = min;
         }
     }
     for(int i = 0;i < n;i++)
     {
-        if(a[i]%2 == 0)
+        if(a[i] == max)
         {
-            add(a, n, i, a[i]);
+            a[i] = vt1;
+        }
+        else if(a[i] == min)
+        {
+            a[i] = vt;
         }
     }
 }
