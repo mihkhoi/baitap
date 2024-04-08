@@ -24,33 +24,56 @@ void output(double a[][100], int n, int m)
     }
 }
 
-void solve(double a[][100], int n, int m)
+double transmit(double a[][100], double b[100], int n, int m)// doi ma tran sang mang 1 chieu
 {
+    int d = 0;
     for(int i = 0;i < n;i++)
     {
-        for(int j = 0;j < m - 1;j++)
+        for(int j = 0;j < m;j++)
         {
-            for(int k = j + 1;k < m;k++)
+            b[d++] = a[i][j];
+        }
+    }
+    return d;
+}
+
+void sort(double b[], int d)// sap xep tang dan
+{
+    for(int i = 0;i < d;i++)
+    {
+        for(int j = i + 1;j < d;j++)
+        {
+            if(b[i] > b[j])
             {
-                if(a[i][j] > a[i][k])
-                {
-                    int temp = a[i][j];
-                    a[i][j] = a[i][k];
-                    a[i][k] = temp;
-                }
+                swap(b[i], b[j]);
             }
+        }
+    }
+}
+
+void transmitt(double a[][100], double b[], int n, int m)// mang 1 chieu doi sang mang 2 chieu
+{
+    int d = 0;
+    for(int i = 0;i < n;i++)
+    {
+        for(int j = 0;j < m;j++)
+        {
+            a[i][j] = b[d++];
         }
     }
 }
 
 int main()
 {
-    double a[100][100];
+    double a[100][100], b[100];
     int n, m;
     cin >> n;
     cin >> m;
     input(a, n, m);
-    solve(a, n, m);
+    int d;
+    d = transmit(a, b, n, m);
+    sort(b, d);
+    transmitt(a, b, n, m);
     output(a, n, m);
     return 0;
 }
